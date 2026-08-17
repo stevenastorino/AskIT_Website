@@ -1,4 +1,4 @@
-# AskIT
+# IT-Questions.com
 
 Employee self-service site for the 100 IT questions staff ask most often. Search or browse by topic, follow a short checklist, and escalate to the service desk only when the guide says to.
 
@@ -30,6 +30,6 @@ The site is static. A GitHub Action builds it and publishes it on every push to 
 
 Live site: https://it-questions.com/
 
-Repo: https://github.com/symplistic-ai/AskIT_Website
+Repo: https://github.com/symplistic-ai/IT-Questions.com
 
 `npm run build` writes 20 topic HTML pages that contain all 100 guides (for example `dist/guide/passwords-and-lockouts/index.html`). Search still runs in the browser. Local `npm run dev` stays a live React app.
