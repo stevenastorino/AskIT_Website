@@ -28,10 +28,21 @@ export function Home() {
         <SearchBar size="hero" autoFocus />
         <p className="hero-hints">
           Try{' '}
-          <Link to="/search?q=vpn">VPN</Link>,{' '}
-          <Link to="/search?q=printer">printer offline</Link>,{' '}
-          <Link to="/search?q=deleted+files">deleted files</Link>, or{' '}
-          <Link to="/search?q=password">password</Link>
+          <Link to="/search?q=vpn" rel="nofollow">
+            VPN
+          </Link>
+          ,{' '}
+          <Link to="/search?q=printer" rel="nofollow">
+            printer offline
+          </Link>
+          ,{' '}
+          <Link to="/search?q=deleted+files" rel="nofollow">
+            deleted files
+          </Link>
+          , or{' '}
+          <Link to="/search?q=password" rel="nofollow">
+            password
+          </Link>
         </p>
       </section>
 

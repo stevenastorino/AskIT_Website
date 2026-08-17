@@ -118,7 +118,7 @@ export function ArticlePage() {
           </ul>
           <div className="aside-tags">
             {article.tags.map((tag) => (
-              <Link key={tag} to={`/search?q=${encodeURIComponent(tag)}`}>
+              <Link key={tag} to={`/search?q=${encodeURIComponent(tag)}`} rel="nofollow">
                 {tag}
               </Link>
             ))}
