@@ -3,10 +3,12 @@ import { ArticleCard } from '../components/ArticleCard'
 import { SearchBar } from '../components/SearchBar'
 import { articles } from '../data/articles'
 import { categories } from '../data/categories'
+import { usePageTitle } from '../lib/pageTitle'
 import { filterArticles } from '../lib/search'
 import type { CategoryId, Difficulty } from '../types'
 
 export function Browse() {
+  usePageTitle('All guides · AskIT', 'Browse all 100 IT self-service guides by topic and effort.')
   const [category, setCategory] = useState<CategoryId | 'all'>('all')
   const [difficulty, setDifficulty] = useState<Difficulty | 'all'>('all')
   const [query, setQuery] = useState('')

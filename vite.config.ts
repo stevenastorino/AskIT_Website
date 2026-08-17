@@ -9,7 +9,11 @@ function githubPagesBase() {
   return `/${name}/`
 }
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   base: githubPagesBase(),
   plugins: [react()],
-})
+  build: {
+    outDir: isSsrBuild ? 'dist-ssr' : 'dist',
+    emptyOutDir: true,
+  },
+}))

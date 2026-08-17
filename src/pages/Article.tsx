@@ -3,11 +3,16 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { DifficultyBadge } from '../components/ArticleCard'
 import { articleBySlug, articles } from '../data/articles'
 import { categoryById } from '../data/categories'
+import { usePageTitle } from '../lib/pageTitle'
 
 export function ArticlePage() {
   const { slug } = useParams()
   const article = slug ? articleBySlug[slug] : undefined
   const [feedback, setFeedback] = useState<'yes' | 'no' | null>(null)
+  usePageTitle(
+    article ? `${article.title} · AskIT` : 'AskIT',
+    article?.summary,
+  )
 
   const related = useMemo(() => {
     if (!article) return []

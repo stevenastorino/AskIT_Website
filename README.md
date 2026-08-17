@@ -37,4 +37,4 @@ The site is static. A GitHub Action builds it and publishes it on every push to 
 
 Example: if the repo is `AskIT_Website`, the URL is `https://<your-username>.github.io/AskIT_Website/`.
 
-Guide links such as `/guide/connect-to-vpn` keep working because the build copies `index.html` to `404.html` for GitHub Pages. Local `npm run dev` still uses `/`.
+`npm run build` writes a real HTML file for every guide, category, and main page (for example `dist/guide/account-locked-out/index.html`). Search still runs in the browser. Local `npm run dev` stays a live React app.

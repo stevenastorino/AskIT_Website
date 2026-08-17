@@ -2,11 +2,16 @@ import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { ArticleCard } from '../components/ArticleCard'
 import { SearchBar } from '../components/SearchBar'
+import { usePageTitle } from '../lib/pageTitle'
 import { searchArticles } from '../lib/search'
 
 export function SearchPage() {
   const [params] = useSearchParams()
   const query = params.get('q') ?? ''
+  usePageTitle(
+    query.trim() ? `Results for “${query.trim()}” · AskIT` : 'Search · AskIT',
+    'Search the AskIT employee IT handbook.',
+  )
   const results = useMemo(() => (query.trim() ? searchArticles(query) : []), [query])
 
   return (

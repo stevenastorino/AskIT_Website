@@ -4,8 +4,14 @@ import { CategoryIcon, IconArrow } from '../components/Icons'
 import { SearchBar } from '../components/SearchBar'
 import { articles, popularArticles } from '../data/articles'
 import { categories } from '../data/categories'
+import { usePageTitle } from '../lib/pageTitle'
 
 export function Home() {
+  usePageTitle(
+    'AskIT · Employee IT self-service',
+    'AskIT is an employee self-service knowledge base with the 100 IT questions staff ask most — VPN, printers, passwords, files, and hardware.',
+  )
+
   return (
     <div className="page-home">
       <section className="hero">

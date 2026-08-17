@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageTitle } from '../lib/pageTitle'
 
 const ticketChecklist = [
   'Your name, location, and asset tag (underside of the laptop or in Company Portal)',
@@ -9,6 +10,11 @@ const ticketChecklist = [
 ]
 
 export function Contact() {
+  usePageTitle(
+    'Contact IT · AskIT',
+    'When a guide is not enough: ticket checklist, walk-up hours, and urgent contacts.',
+  )
+
   return (
     <div className="page-contact">
       <header className="page-intro">

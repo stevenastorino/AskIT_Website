@@ -3,11 +3,16 @@ import { ArticleCard } from '../components/ArticleCard'
 import { CategoryIcon } from '../components/Icons'
 import { articlesInCategory } from '../data/articles'
 import { categoryById } from '../data/categories'
+import { usePageTitle } from '../lib/pageTitle'
 import type { CategoryId } from '../types'
 
 export function CategoryPage() {
   const { id } = useParams()
   const category = id && id in categoryById ? categoryById[id as CategoryId] : undefined
+  usePageTitle(
+    category ? `${category.name} · AskIT` : 'AskIT',
+    category?.blurb,
+  )
 
   if (!category) {
     return <Navigate to="/browse" replace />
