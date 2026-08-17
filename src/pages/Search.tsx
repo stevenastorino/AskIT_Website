@@ -9,8 +9,8 @@ export function SearchPage() {
   const [params] = useSearchParams()
   const query = params.get('q') ?? ''
   usePageTitle(
-    query.trim() ? `Results for “${query.trim()}” · AskIT` : 'Search · AskIT',
-    'Search the AskIT employee IT handbook.',
+    query.trim() ? `Results for “${query.trim()}” · IT-Questions.com` : 'Search · IT-Questions.com',
+    'Search the IT-Questions.com employee IT handbook.',
   )
   const results = useMemo(() => (query.trim() ? searchArticles(query) : []), [query])
 

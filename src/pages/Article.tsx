@@ -86,7 +86,7 @@ export function ArticlePage() {
   const topic = slug ? topicById[slug] : undefined
   const legacyArticle = slug ? articleBySlug[slug] : undefined
 
-  usePageTitle(topic ? `${topic.name} · AskIT` : 'AskIT', topic?.blurb)
+  usePageTitle(topic ? `${topic.name} · IT-Questions.com` : 'IT-Questions.com', topic?.blurb)
 
   if (!topic && legacyArticle) {
     return <Navigate to={articleHref(legacyArticle.slug)} replace />

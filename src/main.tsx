@@ -5,7 +5,7 @@ import './index.css'
 
 const root = document.getElementById('root')
 if (!root) {
-  throw new Error('AskIT root element was not found')
+  throw new Error('IT-Questions.com root element was not found')
 }
 
 const app = (

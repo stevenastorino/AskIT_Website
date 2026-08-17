@@ -4,14 +4,14 @@ import { usePageTitle } from '../lib/pageTitle'
 const ticketChecklist = [
   'Your name, location, and asset tag (underside of the laptop or in Company Portal)',
   'The exact error message or a screenshot',
-  'What you already tried from the matching AskIT guide',
+  'What you already tried from the matching IT-Questions.com guide',
   'Whether coworkers on the same floor or printer are affected',
   'The time it started, and whether you recently changed your password',
 ]
 
 export function Contact() {
   usePageTitle(
-    'Contact IT · AskIT',
+    'Contact IT · IT-Questions.com',
     'When a guide is not enough: ticket checklist, walk-up hours, and urgent contacts.',
   )
 

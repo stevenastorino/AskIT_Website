@@ -34,34 +34,34 @@ export function getPrerenderRoutes() {
 export function getPageMeta(path: string): PageMeta {
   if (path === '/') {
     return {
-      title: 'AskIT · Employee IT self-service',
+      title: 'IT-Questions.com · Employee IT self-service',
       description:
-        'AskIT is an employee self-service knowledge base with the 100 IT questions staff ask most — VPN, printers, passwords, files, and hardware.',
+        'IT-Questions.com is an employee self-service knowledge base with the 100 IT questions staff ask most — VPN, printers, passwords, files, and hardware.',
     }
   }
   if (path === '/browse') {
     return {
-      title: 'All guides · AskIT',
+      title: 'All guides · IT-Questions.com',
       description: 'Browse all 100 IT self-service guides by topic and effort.',
     }
   }
   if (path === '/contact') {
     return {
-      title: 'Contact IT · AskIT',
+      title: 'Contact IT · IT-Questions.com',
       description: 'When a guide is not enough: ticket checklist, walk-up hours, and urgent contacts.',
     }
   }
   if (path === '/search') {
     return {
-      title: 'Search · AskIT',
-      description: 'Search the AskIT employee IT handbook.',
+      title: 'Search · IT-Questions.com',
+      description: 'Search the IT-Questions.com employee IT handbook.',
     }
   }
 
   const category = categories.find((item) => path === `/category/${item.id}`)
   if (category) {
     return {
-      title: `${category.name} · AskIT`,
+      title: `${category.name} · IT-Questions.com`,
       description: category.blurb,
     }
   }
@@ -69,13 +69,13 @@ export function getPageMeta(path: string): PageMeta {
   const topic = topics.find((item) => path === `/guide/${item.id}`)
   if (topic) {
     return {
-      title: `${topic.name} · AskIT`,
+      title: `${topic.name} · IT-Questions.com`,
       description: topic.blurb,
     }
   }
 
   return {
-    title: 'Page not found · AskIT',
+    title: 'Page not found · IT-Questions.com',
     description: 'That guide is not in the handbook.',
   }
 }

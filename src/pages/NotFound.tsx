@@ -3,7 +3,7 @@ import { SearchBar } from '../components/SearchBar'
 import { usePageTitle } from '../lib/pageTitle'
 
 export function NotFound() {
-  usePageTitle('Page not found · AskIT', 'That guide is not in the handbook.')
+  usePageTitle('Page not found · IT-Questions.com', 'That guide is not in the handbook.')
 
   return (
     <div className="page-missing">

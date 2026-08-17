@@ -13,7 +13,7 @@ export function Header() {
             ?
           </span>
           <span>
-            Ask<em>IT</em>
+            IT-Questions.com
           </span>
         </Link>
 
