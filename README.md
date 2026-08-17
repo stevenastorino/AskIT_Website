@@ -28,13 +28,8 @@ npm run preview
 
 The site is static. A GitHub Action builds it and publishes it on every push to `main`.
 
-1. Create a GitHub repository and push this project to the `main` branch.
-2. In the repo, open **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **GitHub Actions**.
-4. After the **Deploy to GitHub Pages** workflow finishes, the site is at:
+Live site: https://it-questions.com/
 
-`https://<your-username>.github.io/<repo-name>/`
-
-Example: if the repo is `AskIT_Website`, the URL is `https://<your-username>.github.io/AskIT_Website/`.
+Repo: https://github.com/symplistic-ai/AskIT_Website
 
 `npm run build` writes 20 topic HTML pages that contain all 100 guides (for example `dist/guide/passwords-and-lockouts/index.html`). Search still runs in the browser. Local `npm run dev` stays a live React app.
