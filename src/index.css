@@ -144,28 +144,26 @@ select {
 .wordmark {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  color: var(--ink);
   text-decoration: none;
-  font-size: 1.2rem;
 }
 
-.wordmark em,
-.footer-brand em,
+.wordmark img {
+  display: block;
+  height: 3.4rem;
+  width: auto;
+  mix-blend-mode: multiply;
+}
+
+.footer-brand img {
+  display: block;
+  height: 5.5rem;
+  width: auto;
+  mix-blend-mode: multiply;
+}
+
 .hero h1 em {
   font-style: italic;
   color: var(--forest);
-}
-
-.wordmark-mark {
-  width: 1.7rem;
-  height: 1.7rem;
-  border: 1.5px solid var(--ink);
-  display: grid;
-  place-items: center;
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  line-height: 1;
 }
 
 .header-nav {

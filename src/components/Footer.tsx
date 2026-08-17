@@ -7,7 +7,7 @@ export function Footer() {
       <div className="footer-grid">
         <div>
           <p className="footer-brand">
-            IT-Questions.com
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="IT-Questions.com" />
           </p>
           <p className="footer-blurb">
             Self-service answers for the problems employees ask the service desk every day.

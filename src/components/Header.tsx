@@ -9,12 +9,7 @@ export function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link to="/" className="wordmark" onClick={() => setOpen(false)}>
-          <span className="wordmark-mark" aria-hidden="true">
-            ?
-          </span>
-          <span>
-            IT-Questions.com
-          </span>
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="IT-Questions.com" />
         </Link>
 
         <div className="header-search">
