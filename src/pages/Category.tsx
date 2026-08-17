@@ -1,23 +1,22 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArticleCard } from '../components/ArticleCard'
 import { CategoryIcon } from '../components/Icons'
+import { TopicCard } from '../components/TopicCard'
 import { articlesInCategory } from '../data/articles'
 import { categoryById } from '../data/categories'
+import { topicsInCategory } from '../data/topics'
 import { usePageTitle } from '../lib/pageTitle'
 import type { CategoryId } from '../types'
 
 export function CategoryPage() {
   const { id } = useParams()
   const category = id && id in categoryById ? categoryById[id as CategoryId] : undefined
-  usePageTitle(
-    category ? `${category.name} · AskIT` : 'AskIT',
-    category?.blurb,
-  )
+  usePageTitle(category ? `${category.name} · AskIT` : 'AskIT', category?.blurb)
 
   if (!category) {
     return <Navigate to="/browse" replace />
   }
 
+  const topicPages = topicsInCategory(category.id)
   const items = articlesInCategory(category.id)
 
   return (
@@ -33,13 +32,15 @@ export function CategoryPage() {
         <span className="page-icon">
           <CategoryIcon id={category.id} />
         </span>
-        <p className="kicker">{items.length} guides</p>
+        <p className="kicker">
+          {topicPages.length} pages · {items.length} guides
+        </p>
         <h1>{category.name}</h1>
         <p className="lede">{category.blurb}</p>
       </header>
-      <div className="stack-list">
-        {items.map((article) => (
-          <ArticleCard key={article.slug} article={article} />
+      <div className="topic-grid">
+        {topicPages.map((topic) => (
+          <TopicCard key={topic.id} topic={topic} />
         ))}
       </div>
     </div>

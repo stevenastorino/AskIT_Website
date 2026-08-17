@@ -1,31 +1,33 @@
 import { useMemo, useState } from 'react'
-import { ArticleCard } from '../components/ArticleCard'
 import { SearchBar } from '../components/SearchBar'
-import { articles } from '../data/articles'
+import { TopicCard } from '../components/TopicCard'
 import { categories } from '../data/categories'
+import { topics } from '../data/topics'
 import { usePageTitle } from '../lib/pageTitle'
-import { filterArticles } from '../lib/search'
-import type { CategoryId, Difficulty } from '../types'
+import type { CategoryId } from '../types'
 
 export function Browse() {
-  usePageTitle('All guides · AskIT', 'Browse all 100 IT self-service guides by topic and effort.')
+  usePageTitle('All guides · AskIT', 'Browse 100 IT self-service guides grouped on 20 topic pages.')
   const [category, setCategory] = useState<CategoryId | 'all'>('all')
-  const [difficulty, setDifficulty] = useState<Difficulty | 'all'>('all')
   const [query, setQuery] = useState('')
 
-  const visible = useMemo(
-    () => filterArticles({ category, difficulty, query }),
-    [category, difficulty, query],
-  )
+  const visible = useMemo(() => {
+    const needle = query.trim().toLowerCase()
+    return topics.filter((topic) => {
+      if (category !== 'all' && topic.category !== category) return false
+      if (!needle) return true
+      return `${topic.name} ${topic.blurb} ${topic.slugs.join(' ')}`.toLowerCase().includes(needle)
+    })
+  }, [category, query])
 
   return (
     <div className="page-browse">
       <header className="page-intro">
-        <p className="kicker">{articles.length} field guides</p>
+        <p className="kicker">100 guides · {topics.length} pages</p>
         <h1>Browse every IT question</h1>
         <p className="lede">
-          Filter by topic or how involved the fix is. Each guide ends with when to stop and
-          call the service desk.
+          Each page groups a handful of related how-tos. Open a page, then jump to the
+          checklist you need.
         </p>
         <SearchBar size="page" />
       </header>
@@ -43,18 +45,6 @@ export function Browse() {
           </select>
         </label>
         <label>
-          Effort
-          <select
-            value={difficulty}
-            onChange={(event) => setDifficulty(event.target.value as Difficulty | 'all')}
-          >
-            <option value="all">Any effort</option>
-            <option value="easy">Easy</option>
-            <option value="moderate">Moderate</option>
-            <option value="escalate">Call IT if needed</option>
-          </select>
-        </label>
-        <label>
           Filter titles
           <input
             type="search"
@@ -66,11 +56,11 @@ export function Browse() {
       </div>
 
       <p className="result-count">
-        Showing {visible.length} of {articles.length}
+        Showing {visible.length} of {topics.length} pages
       </p>
-      <div className="stack-list">
-        {visible.map((article) => (
-          <ArticleCard key={article.slug} article={article} />
+      <div className="topic-grid">
+        {visible.map((topic) => (
+          <TopicCard key={topic.id} topic={topic} />
         ))}
       </div>
     </div>

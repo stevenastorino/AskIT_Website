@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { ArticleCard } from '../components/ArticleCard'
-import { CategoryIcon, IconArrow } from '../components/Icons'
+import { IconArrow } from '../components/Icons'
 import { SearchBar } from '../components/SearchBar'
-import { articles, popularArticles } from '../data/articles'
-import { categories } from '../data/categories'
+import { TopicCard } from '../components/TopicCard'
+import { popularArticles } from '../data/articles'
+import { topics } from '../data/topics'
 import { usePageTitle } from '../lib/pageTitle'
 
 export function Home() {
@@ -15,7 +16,7 @@ export function Home() {
   return (
     <div className="page-home">
       <section className="hero">
-        <p className="kicker">Employee self-service · 100 field guides</p>
+        <p className="kicker">Employee self-service · 100 guides on 20 pages</p>
         <h1>
           Fix the usual IT problems
           <em> without waiting on a ticket.</em>
@@ -26,43 +27,19 @@ export function Home() {
           at your desk.
         </p>
         <SearchBar size="hero" autoFocus />
-        <p className="hero-hints">
-          Try{' '}
-          <Link to="/search?q=vpn" rel="nofollow">
-            VPN
-          </Link>
-          ,{' '}
-          <Link to="/search?q=printer" rel="nofollow">
-            printer offline
-          </Link>
-          ,{' '}
-          <Link to="/search?q=deleted+files" rel="nofollow">
-            deleted files
-          </Link>
-          , or{' '}
-          <Link to="/search?q=password" rel="nofollow">
-            password
-          </Link>
-        </p>
+        <p className="hero-hints">Try VPN, printer offline, deleted files, or password</p>
       </section>
 
       <section className="section">
         <div className="section-head">
           <h2>Start by topic</h2>
           <Link to="/browse" className="text-link">
-            View all {articles.length} guides <IconArrow />
+            View all {topics.length} pages <IconArrow />
           </Link>
         </div>
-        <div className="category-grid">
-          {categories.map((category) => (
-            <Link key={category.id} to={`/category/${category.id}`} className="category-tile">
-              <span className="category-icon">
-                <CategoryIcon id={category.id} />
-              </span>
-              <span className="category-name">{category.name}</span>
-              <span className="category-blurb">{category.blurb}</span>
-              <span className="category-count">{category.countLabel}</span>
-            </Link>
+        <div className="topic-grid">
+          {topics.map((topic) => (
+            <TopicCard key={topic.id} topic={topic} />
           ))}
         </div>
       </section>

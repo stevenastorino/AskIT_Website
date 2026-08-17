@@ -1,8 +1,8 @@
 import { renderToString } from 'react-dom/server'
 import { MemoryRouter } from 'react-router-dom'
 import { AppShell } from './App'
-import { articles } from './data/articles'
 import { categories } from './data/categories'
+import { topics } from './data/topics'
 import { basename } from './lib/basename'
 
 export type PageMeta = {
@@ -27,7 +27,7 @@ export function getPrerenderRoutes() {
     '/contact',
     '/search',
     ...categories.map((category) => `/category/${category.id}`),
-    ...articles.map((article) => `/guide/${article.slug}`),
+    ...topics.map((topic) => `/guide/${topic.id}`),
   ]
 }
 
@@ -66,11 +66,11 @@ export function getPageMeta(path: string): PageMeta {
     }
   }
 
-  const article = articles.find((item) => path === `/guide/${item.slug}`)
-  if (article) {
+  const topic = topics.find((item) => path === `/guide/${item.id}`)
+  if (topic) {
     return {
-      title: `${article.title} · AskIT`,
-      description: article.summary,
+      title: `${topic.name} · AskIT`,
+      description: topic.blurb,
     }
   }
 

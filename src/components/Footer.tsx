@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { categories } from '../data/categories'
+import { topics } from '../data/topics'
 
 export function Footer() {
   return (
@@ -17,9 +17,9 @@ export function Footer() {
         <div>
           <h2>Topics</h2>
           <ul>
-            {categories.slice(0, 5).map((category) => (
-              <li key={category.id}>
-                <Link to={`/category/${category.id}`}>{category.name}</Link>
+            {topics.slice(0, 10).map((topic) => (
+              <li key={topic.id}>
+                <Link to={`/guide/${topic.id}`}>{topic.name}</Link>
               </li>
             ))}
           </ul>
@@ -27,9 +27,9 @@ export function Footer() {
         <div>
           <h2>More</h2>
           <ul>
-            {categories.slice(5).map((category) => (
-              <li key={category.id}>
-                <Link to={`/category/${category.id}`}>{category.name}</Link>
+            {topics.slice(10).map((topic) => (
+              <li key={topic.id}>
+                <Link to={`/guide/${topic.id}`}>{topic.name}</Link>
               </li>
             ))}
           </ul>
@@ -41,7 +41,7 @@ export function Footer() {
               <Link to="/contact">Contact IT</Link>
             </li>
             <li>
-              <Link to="/browse">Browse all 100 guides</Link>
+              <Link to="/browse">Browse all 20 pages</Link>
             </li>
             <li>
               <a href="tel:+15550100">Service desk · ext. 4357</a>

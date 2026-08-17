@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { categoryById } from '../data/categories'
+import { articleHref } from '../data/topics'
 import type { Article } from '../types'
 import { CategoryIcon } from './Icons'
 
@@ -13,7 +14,7 @@ export function ArticleCard({ article, index }: { article: Article; index?: numb
   const category = categoryById[article.category]
 
   return (
-    <Link to={`/guide/${article.slug}`} className="article-card">
+    <Link to={articleHref(article.slug)} className="article-card">
       {index !== undefined && <span className="article-index">{String(index + 1).padStart(2, '0')}</span>}
       <span className="article-card-icon">
         <CategoryIcon id={article.category} />
